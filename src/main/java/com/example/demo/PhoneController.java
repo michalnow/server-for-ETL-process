@@ -6,7 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/phone")
 public class PhoneController {
@@ -23,6 +25,13 @@ public class PhoneController {
     @GetMapping("/all")
     public Iterable<Phone> getAllPhones(){
         return phoneService.findAll();
+    }
+
+    @GetMapping("/{phone_id}")
+    public Optional<Phone> getPhoneById(@PathVariable Long phone_id){
+        Optional<Phone> phone = phoneService.findById(phone_id);
+
+        return phone;
     }
 
     @PostMapping
