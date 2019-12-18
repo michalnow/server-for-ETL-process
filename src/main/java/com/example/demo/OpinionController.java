@@ -6,8 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/api/opinion")
 public class OpinionController {
@@ -30,6 +32,14 @@ public class OpinionController {
             opinion.setPhone(phone);
             return opinionService.saveOrUpdate(opinion);
         }).orElseThrow(()-> new Exception("phone not found"));
+    }
+
+    @GetMapping("/{phone_id}/all")
+    public List<Opinion> findAllOpinionsByPhoneId(@PathVariable(value = "phone_id") Long phone_id){
+        Optional<Phone> phone = phoneRepository.findById(phone_id);
+
+        return opinionService.findOpinionByPhone(phone);
+
     }
 
 }
