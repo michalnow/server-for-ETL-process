@@ -16,7 +16,7 @@ public class Opinion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(columnDefinition = "LONGVARCHAR")
+    @Column(columnDefinition = "LONGTEXT")
     private String review;
     private String nickname;
     private int grade;
