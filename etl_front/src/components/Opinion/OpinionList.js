@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { Rating } from "primereact/rating";
 
 import "primereact/resources/primereact.min.css";
@@ -39,6 +38,7 @@ class OpinionList extends Component {
         >
           {this.state.phone.fullName} - opinions
         </p>
+
         {this.state.opinions.map(opinion => {
           return (
             <div className="col-sm-12">
@@ -59,11 +59,22 @@ class OpinionList extends Component {
                     color: "white",
                     fontSize: "30px",
                     fontWeight: "bold",
-                    textAlign: "left"
+                    textAlign: "left",
+                    fontStyle: "italic"
                   }}
                 >
                   {opinion.nickname}
-                  <br></br> {opinion.publishDate.substring(0, 12)}
+                  <p
+                    className="lead"
+                    style={{
+                      fontWeight: "bold",
+                      marginBottom: "-2px",
+                      marginTop: "-7px"
+                    }}
+                  >
+                    {" "}
+                    {opinion.publishDate.substring(0, 12)}
+                  </p>
                 </div>
                 <div className="row">
                   <div className="col-sm-2">
@@ -80,7 +91,10 @@ class OpinionList extends Component {
                       }}
                     />
                   </div>
-                  <div className="col-sm-8">
+                  <div
+                    className="col-sm-8"
+                    style={{ marginTop: "5px", justifyContent: "center" }}
+                  >
                     {opinion.review}
                     {opinion.recommendation === "Tak" ? (
                       <p
@@ -106,18 +120,34 @@ class OpinionList extends Component {
                       </p>
                     )}
                   </div>
-                  <div className="col-sm-2">
+                  <div className="col-sm-2" style={{ marginTop: "5px" }}>
                     <p
                       className="lead"
-                      style={{ color: "green", fontWeight: "bold" }}
+                      style={{
+                        color: "#57FF0F",
+                        fontWeight: "bold",
+                        fontSize: "37px"
+                      }}
                     >
-                      {opinion.thumbsUp} thumbs up
+                      <i
+                        className="fa fa-thumbs-up"
+                        style={{ fontSize: "42px" }}
+                      ></i>
+                      &nbsp;{opinion.thumbsUp}
                     </p>
                     <p
                       className="lead"
-                      style={{ color: "red", fontWeight: "bold" }}
+                      style={{
+                        color: "#FF0000",
+                        fontWeight: "bold",
+                        fontSize: "37px"
+                      }}
                     >
-                      {opinion.thumbsDown} thumbs down
+                      <i
+                        className="fa fa-thumbs-down"
+                        style={{ fontSize: "42px" }}
+                      ></i>
+                      &nbsp;{opinion.thumbsDown}
                     </p>
                   </div>
                 </div>
