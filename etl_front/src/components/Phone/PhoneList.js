@@ -51,6 +51,7 @@ class PhoneList extends Component {
                       alignContent: "Center",
                       textAlign: "center"
                     }}
+                    alt=""
                   />
                   <p
                     className="lead"

@@ -34,7 +34,12 @@ class OpinionList extends Component {
       <div className="container">
         <p
           className="lead"
-          style={{ fontSize: "30px", fontWeight: "bold", fontStyle: "italic" }}
+          style={{
+            fontSize: "30px",
+            fontWeight: "bold",
+            fontStyle: "italic",
+            marginBottom: "-1px"
+          }}
         >
           {this.state.phone.fullName} - opinions
         </p>
@@ -63,13 +68,16 @@ class OpinionList extends Component {
                     fontStyle: "italic"
                   }}
                 >
-                  {opinion.nickname}
+                  <p style={{ marginLeft: "5px", marginTop: "-8px" }}>
+                    {opinion.nickname}
+                  </p>
                   <p
                     className="lead"
                     style={{
                       fontWeight: "bold",
                       marginBottom: "-2px",
-                      marginTop: "-7px"
+                      marginTop: "-25px",
+                      marginLeft: "5px"
                     }}
                   >
                     {" "}

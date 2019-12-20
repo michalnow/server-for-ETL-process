@@ -13,7 +13,8 @@ class Landing extends Component {
             <p className="lead" style={{ fontSize: 26 }}>
               We're scrapping data from ceneo.pl about Smartphones and opinions
               associated to them. Scrapper tool was written in Java8 with the
-              help from Jsoup and the server in Spring Boot.
+              help from Jsoup and the server to managed scappred data in Spring
+              Boot.
             </p>
           </div>
           <div className="col-sm">
@@ -22,14 +23,17 @@ class Landing extends Component {
               <img
                 src={require("../../images/spring.png")}
                 style={{ height: "120px", marginTop: "15px" }}
+                alt=""
               />
               <img
                 src={require("../../images/Jsoup.png")}
                 style={{ height: "160px" }}
+                alt=""
               />
               <img
                 src={require("../../images/java8.png")}
                 style={{ height: "160px", marginTop: "-15px" }}
+                alt=""
               />
             </p>
           </div>
@@ -49,7 +53,12 @@ class Landing extends Component {
         </div>
         <p
           className="lead"
-          style={{ fontSize: 40, fontWeight: "bold", fontStyle: "italic" }}
+          style={{
+            fontSize: 40,
+            fontWeight: "bold",
+            fontStyle: "italic",
+            marginTop: "-20px"
+          }}
         >
           Check what we've scrapped
         </p>
@@ -69,6 +78,58 @@ class Landing extends Component {
             Check this out !
           </button>
         </Link>
+        <div className="row" style={{ marginTop: "-10px" }}>
+          <div className="col-sm-6">
+            <a
+              style={{ textDecoration: "none", outline: "none" }}
+              href="https://github.com/michalnow/ETL_Project"
+              target="_blank"
+              rel=" noopener noreferrer"
+            >
+              <img
+                src={require("../../images/github.png")}
+                style={{ width: "300px" }}
+                alt=""
+              ></img>
+              <p
+                className="lead"
+                style={{
+                  color: "Black",
+                  fontSize: "20px",
+                  fontStyle: "italic",
+                  fontWeight: "bold"
+                }}
+              >
+                Scrapper tool
+              </p>
+            </a>
+          </div>
+          <div className="col-sm-6">
+            <a
+              style={{ textDecoration: "none", outline: "none" }}
+              href="https://github.com/michalnow/server-for-ETL-process"
+              target="_blank"
+              rel=" noopener noreferrer"
+            >
+              <img
+                src={require("../../images/github.png")}
+                style={{ width: "300px" }}
+                alt=""
+              ></img>
+              <p
+                className="lead"
+                style={{
+                  color: "Black",
+                  fontSize: "20px",
+                  fontStyle: "italic",
+                  fontWeight: "bold"
+                }}
+              >
+                Server and client
+              </p>
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
