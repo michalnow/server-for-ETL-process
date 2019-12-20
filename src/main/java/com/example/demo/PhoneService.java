@@ -18,7 +18,7 @@ public class PhoneService {
         return phoneRepository.findAll();
     }
 
-    public Optional<Phone> findById(Long id) {return phoneRepository.findById(id);}
+    public Optional<Phone> findById(String id) {return phoneRepository.findById(id);}
 
     public Phone saveOrUpdate(Phone phone){
         return phoneRepository.save(phone);

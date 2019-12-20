@@ -28,7 +28,7 @@ public class PhoneController {
     }
 
     @GetMapping("/{phone_id}")
-    public Optional<Phone> getPhoneById(@PathVariable Long phone_id){
+    public Optional<Phone> getPhoneById(@PathVariable String phone_id){
         Optional<Phone> phone = phoneService.findById(phone_id);
 
         return phone;

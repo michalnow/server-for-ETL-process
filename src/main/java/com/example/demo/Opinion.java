@@ -14,8 +14,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class Opinion {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(unique = true)
+    private String id;
     @Column(columnDefinition = "LONGTEXT")
     private String review;
     private String nickname;

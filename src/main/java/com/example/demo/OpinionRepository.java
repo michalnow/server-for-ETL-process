@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface OpinionRepository extends CrudRepository<Opinion,Long> {
+public interface OpinionRepository extends CrudRepository<Opinion,String> {
 
     public Opinion findByReview(String review);
     public List<Opinion> findOpinionByPhone(Optional<Phone> phone);

@@ -15,9 +15,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Phone {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long phone_id;
     @Column(unique = true)
+    private String phone_id;
     private String fullName;
     private String description;
     private String imageUrl;

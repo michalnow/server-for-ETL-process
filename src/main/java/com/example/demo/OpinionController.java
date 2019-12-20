@@ -27,15 +27,15 @@ public class OpinionController {
     }
 
     @PostMapping("/{phone_id}")
-    public Opinion createOpinion(@PathVariable(value = "phone_id") Long phone_id, @Valid @RequestBody Opinion opinion) throws Exception {
+    public Opinion createOpinion(@PathVariable(value = "phone_id") String phone_id, @Valid @RequestBody Opinion opinion) throws Exception {
         return phoneRepository.findById(phone_id).map(phone -> {
             opinion.setPhone(phone);
             return opinionService.saveOrUpdate(opinion);
-        }).orElseThrow(()-> new Exception("phone not found"));
+        }).orElseThrow(()-> new Exception("phone not found with id = " + phone_id));
     }
 
     @GetMapping("/{phone_id}/all")
-    public List<Opinion> findAllOpinionsByPhoneId(@PathVariable(value = "phone_id") Long phone_id){
+    public List<Opinion> findAllOpinionsByPhoneId(@PathVariable(value = "phone_id") String phone_id){
         Optional<Phone> phone = phoneRepository.findById(phone_id);
 
         return opinionService.findOpinionByPhone(phone);
