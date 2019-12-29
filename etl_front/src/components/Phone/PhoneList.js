@@ -8,7 +8,7 @@ class PhoneList extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:8080/api/phone/all`).then(res => {
+    axios.get(`http://localhost:8080/server/api/phone/all`).then(res => {
       const phones1 = res.data;
       this.setState({ phones: phones1 });
     });

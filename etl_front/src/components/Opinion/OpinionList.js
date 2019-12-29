@@ -14,7 +14,7 @@ class OpinionList extends Component {
   componentDidMount() {
     axios
       .get(
-        `http://localhost:8080/api/opinion/${this.props.match.params.phoneId}/all`
+        `http://localhost:8080/server/api/opinion/${this.props.match.params.phoneId}/all`
       )
       .then(res => {
         const opinions1 = res.data;
@@ -22,7 +22,9 @@ class OpinionList extends Component {
       });
 
     axios
-      .get(`http://localhost:8080/api/phone/${this.props.match.params.phoneId}`)
+      .get(
+        `http://localhost:8080/server/api/phone/${this.props.match.params.phoneId}`
+      )
       .then(res => {
         const phone1 = res.data;
         this.setState({ phone: phone1 });
