@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 class PhoneList extends Component {
   state = {
-    phones: []
+    phones: [],
+    phoneName: ""
   };
 
   componentDidMount() {
@@ -14,9 +15,39 @@ class PhoneList extends Component {
     });
   }
 
+  onChange = e => {
+    this.setState({
+      [e.target.name]:
+        e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+    });
+  };
+
   render() {
     return (
       <div className="container">
+        <h1>Search phone</h1>
+        <input
+          type="text"
+          name="phoneName"
+          id="phonName"
+          onChange={this.onChange}
+          style={{ marginTop: "5px", marginBottom: "5px" }}
+        />
+        <br></br>
+        <Link
+          to={`/phone/${this.state.phoneName}`}
+          className="btn btn-outline-primary btn-lg"
+          style={{
+            borderRadius: "20px",
+            fontWeight: "bold",
+            height: "50px",
+            width: "150px",
+            fontSize: "25px",
+            border: "none"
+          }}
+        >
+          Search
+        </Link>
         {this.state.phones.map(phone => {
           return (
             <div className="col-sm-12">
