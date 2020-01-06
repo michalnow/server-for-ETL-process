@@ -11,7 +11,7 @@ public class WebConfiguration {
         ServletRegistrationBean registration = new ServletRegistrationBean( new org.h2.server.web.WebServlet());
         registration.addUrlMappings("/h2-console/*");
         registration.addInitParameter("webAllowOthers", "true");
-        registration.addInitParameter("webPort", "7777");// <-- the port your wish goes here
+        //registration.addInitParameter("webPort", "8080");
 
         return registration;
     }
