@@ -49,4 +49,10 @@ public class PhoneController {
 
         return new ResponseEntity<Phone>(phone, HttpStatus.CREATED);
     }
+
+    @PutMapping(path = "/update")
+    public Phone updatePhone(@Valid @RequestBody Phone phone){
+        return phoneRepository.save(phone);
+    }
+
 }

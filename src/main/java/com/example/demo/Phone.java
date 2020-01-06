@@ -20,7 +20,7 @@ public class Phone {
     private String fullName;
     private String description;
     private String imageUrl;
-    @OneToMany(mappedBy = "phone", fetch =  FetchType.LAZY)
+    @OneToMany(mappedBy = "phone", fetch =  FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JsonManagedReference
     private List<Opinion> opinions = new ArrayList<>();
 }

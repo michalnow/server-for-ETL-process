@@ -25,7 +25,7 @@ public class Opinion {
     private Date publishDate;
     private int thumbsUp;
     private int thumbsDown;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "phone_id", nullable = false)
     @JsonBackReference
     private Phone phone;
