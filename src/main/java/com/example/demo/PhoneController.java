@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
@@ -32,6 +33,14 @@ public class PhoneController {
         Optional<Phone> phone = phoneService.findById(phone_id);
 
         return phone;
+    }
+
+    @GetMapping("/{phone_name}/all")
+    public List<Phone> getAllContaing(@PathVariable String phone_name){
+        String nameToFind = phone_name.substring(0,1).toUpperCase() + phone_name.substring(1);
+        List<Phone> phones = phoneService.findPhoneWithName(nameToFind);
+
+        return phones;
     }
 
     @PostMapping

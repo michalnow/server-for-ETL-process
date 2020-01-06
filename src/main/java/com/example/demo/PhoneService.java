@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,5 +23,9 @@ public class PhoneService {
 
     public Phone saveOrUpdate(Phone phone){
         return phoneRepository.save(phone);
+    }
+
+    public List<Phone> findPhoneWithName(String name){
+        return phoneRepository.findAllByFullNameContaining(name);
     }
 }

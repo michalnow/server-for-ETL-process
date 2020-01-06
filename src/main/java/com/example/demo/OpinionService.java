@@ -24,4 +24,5 @@ public class OpinionService {
     public List<Opinion> findOpinionByPhone(Optional<Phone> phone){
         return opinionRepository.findOpinionByPhone(phone);
     }
+
 }
